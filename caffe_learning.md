@@ -1,15 +1,15 @@
 Caffe学习笔记
 ====
 
-###caffe的三级结构
+### caffe的三级结构  
 
 1.blob：数据的保存，交换以及操作都是以blob形式进行的，数据维度为**number N × channel K × height H × width W**
 2.layer：模型和计算的基础。每一层定义三种操作，setup（Layer初始化），forward(正向传导，根据input计算output)，backward(反向传导计算，根据output计算input的梯度)
 3.net：整合并连接layer，由一系列layer组成  
 模型格式：.prototxt,训练好的模型在model目录下.binnaryproto格式的文件中，模型的格式由caffe.proto定义
 
-####Layer相关
-#####五大派生类型
+#### Layer相关   
+##### 五大派生类型  
 
 1.data_layer:
 * DATA:用于LevelDB和LMDB数据格式的输入的类型
