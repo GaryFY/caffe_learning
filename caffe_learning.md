@@ -22,11 +22,11 @@ Caffe学习笔记
 4.common_layer:主要进行vision_layer的连接
 5.vision_layer:主要实现convolution和polling操作
 
-#####重要成员函数与成员变量
+##### 重要成员函数与成员变量  
 1.forward(正向传导，根据bottom计算top)，backward(反向传导计算，根据top计算bottom)
 2.loss
 
-#####Solver
+##### Solver  
 当进行整个网络训练过程的时候，实际上是在运行caffe.cpp中的train()函数，而这个函数实际上是实例化一个Solver对象，初始化后调用了Solver中的Solve()方法。而这个Solve()函数主要就是在迭代运行下面这两个函数
 
 ```
@@ -34,7 +34,7 @@ ComputerUpdateValue();
 net_->Update();
 ```
 
-###搭建网络（以mnist为例）
+### 搭建网络（以mnist为例）  
 1.数据准备库：
 ```
 cd $CAFFE_ROOT/data/mnist
@@ -58,7 +58,7 @@ examples/mnist/lenet_train_test.prototxt
 ```
 ./build/tools/caffe train -solver examples/mnist/lenet_solver.prototxt
 ```
-###caffemodel可视化
+### caffemodel可视化  
 利用caffe进行训练，将训练的结果模型进行保存，得到一个caffemodel，然后从测试图片中选出一张进行测试，并进行可视化    
 
 1.加载必要的库
@@ -146,13 +146,13 @@ net.params['layer name'][0].data #获取网络各层的参数数据（权值）
 13.重复11,12步骤
 14.输出最后一层输入属于某个类的概率
 
-###制作网络模型
+### 制作网络模型  
 例：第一个参数：网络模型的prototxt文件，第二个参数：保存的图片路径及名字，第三个参数：--rankdir=x,x有四种选项，分别是LR,RL,TB,BT(网络的方向)
 ```
 sudo python python/draw_net.py examples/cifar10_full_train_test.prototxt netImage/cifar10.png --rankdir=BT
 ```
 
-###绘制loss和accuracy曲线
+### 绘制loss和accuracy曲线  
 1.加载必要的库
 2.设置当前目录
 3.设置是solver求解器
